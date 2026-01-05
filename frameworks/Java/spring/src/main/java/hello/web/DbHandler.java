@@ -1,5 +1,6 @@
 package hello.web;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -66,7 +67,7 @@ public class DbHandler {
 		fortunes.add(new Fortune(0, "Additional fortune added at request time."));
 		Collections.sort(fortunes);
 		return ServerResponse.ok()
-				.header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_HTML_VALUE)
+				.contentType(new MediaType(MediaType.TEXT_HTML, StandardCharsets.UTF_8))
 				.body(JStachio.render(new Fortunes(fortunes)));
 	}
 

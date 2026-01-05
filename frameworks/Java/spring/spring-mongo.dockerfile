@@ -1,10 +1,10 @@
-FROM maven:3.9.5-eclipse-temurin-21 as maven
+FROM maven:3.9-eclipse-temurin-25 as maven
 WORKDIR /spring
 COPY src src
 COPY pom.xml pom.xml
 RUN mvn package -q
 
-FROM bellsoft/liberica-openjre-debian:23
+FROM bellsoft/liberica-openjre-debian:25
 WORKDIR /spring
 COPY --from=maven /spring/target/hello-spring-1.0-SNAPSHOT.jar app.jar
 # See https://docs.spring.io/spring-boot/reference/packaging/efficient.html

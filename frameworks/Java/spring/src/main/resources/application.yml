@@ -3,13 +3,18 @@ server:
   servlet:
     encoding:
       force: true
+
+spring:
+  threads:
+    virtual:
+      enabled: true
 ---
 spring:
   config:
     activate:
       on-profile: jdbc | data-jdbc | jooq
   autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration,org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration,org.springframework.boot.autoconfigure.data.mongo.MongoRepositoriesAutoConfiguration,org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration
+    exclude: org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration,org.springframework.boot.data.mongodb.autoconfigure.DataMongoAutoConfiguration,org.springframework.boot.data.mongodb.autoconfigure.DataMongoRepositoriesAutoConfiguration,org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration
   datasource:
     url: jdbc:postgresql://${database.host}:${database.port}/${database.name}?loggerLevel=OFF&disableColumnSanitiser=true&assumeMinServerVersion=16&sslmode=disable
     username: ${database.username}
@@ -29,9 +34,9 @@ spring:
     activate:
       on-profile: mongo
   autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration
+    exclude: org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration,org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration
 
-spring.data.mongodb:
+spring.mongodb:
   host: tfb-database
   port: 27017
   database: hello_world

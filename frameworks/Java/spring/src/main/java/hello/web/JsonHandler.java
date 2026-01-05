@@ -2,9 +2,9 @@ package hello.web;
 
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectWriter;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -31,7 +31,7 @@ public class JsonHandler implements HandlerFunction<ServerResponse> {
 					.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 					.body(body);
 		}
-		catch (JsonProcessingException ex) {
+		catch (JacksonException ex) {
 			throw new RuntimeException(ex);
 		}
 	}

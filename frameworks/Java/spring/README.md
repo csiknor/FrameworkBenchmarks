@@ -2,7 +2,7 @@
 
 This is the Spring MVC portion of a [benchmarking test suite](../) comparing a variety of web development platforms.
 
-An embedded undertow is used for the web server.
+An embedded Apache Tomcat is used for the web server.
 
 There are four implementations :
 * For postgresql access, JdbcTemplate is used. See [JdbcDbRepository](src/main/java/hello/JdbcDbRepository.java).
@@ -36,8 +36,8 @@ There are four implementations :
 
 ## Versions
 
-* [OpenJDK Runtime Environment Temurin-17](https://adoptium.net/es/temurin/releases/?version=17)
-* [Spring-Boot 3.0.0](https://spring.io/projects/spring-boot)
+* [OpenJDK Runtime Environment Liberica-25](https://bell-sw.com/libericajdk/)
+* [Spring-Boot 4.0](https://spring.io/projects/spring-boot)
 
 ## Test URLs
 
