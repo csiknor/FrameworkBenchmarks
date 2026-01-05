@@ -4,10 +4,6 @@ server:
     encoding:
       force: true
 
-spring:
-  threads:
-    virtual:
-      enabled: true
 ---
 spring:
   config:
